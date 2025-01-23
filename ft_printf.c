@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/22 19:49:02 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:40:02 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,41 @@ void	print_integer(int i)
 	write(1, ft_itoa(i), ft_strlen(ft_itoa(i)));
 }
 
-void	replace_percent(char *format, va_list ap)
+void	replace_percent(char *format, va_list args)
 {
 	if (*format == '%')
 		write(1, "%", 1);
 	else if (*format == 'i')
-		print_integer(va_arg(ap, int));
+		print_integer(va_arg(args, int));
 	else
 		write(1, "something else", 15);
 	format++;
 }
 
-// int	handle_modifier()
-// {
-// }
+static int	handle_modifier(char specifier, va_list args, int *count)
+{
+	if (specifier == c)
+	else if (specifier == s)
+	else if (specifier == d)
+	else if (specifier == i)
+	else if (specifier == %)
+	else if (specifier == x)
+	else if (specifier == X)
+	else if (specifier == p)
+	// return (-1);
+}
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
-	va_list	ap;
+	va_list	args;
 
-	va_start(ap, format);
+	va_start(args, format);
 	i = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			replace_percent(++format, ap);
+			replace_percent(++format, args);
 		else
 			write(1, &format, 1);
 		format++;
