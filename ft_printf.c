@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/23 18:40:02 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:46:12 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ void	replace_percent(char *format, va_list args)
 	format++;
 }
 
-static int	handle_modifier(char specifier, va_list args, int *count)
+static int	handle_specifier(char specifier, va_list args, int *count)
 {
-	if (specifier == c)
-	else if (specifier == s)
-	else if (specifier == d)
-	else if (specifier == i)
-	else if (specifier == %)
-	else if (specifier == x)
-	else if (specifier == X)
-	else if (specifier == p)
+	if (specifier == 'c')
+	else if (specifier == 's')
+	else if (specifier == 'd')
+	else if (specifier == 'i')
+	else if (specifier == '%')
+	else if (specifier == 'x')
+	else if (specifier == 'X')
+	else if (specifier == 'p')
 	// return (-1);
 }
 
