@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/23 18:46:12 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:56:25 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,23 @@ void	replace_percent(char *format, va_list args)
 static int	handle_specifier(char specifier, va_list args, int *count)
 {
 	if (specifier == 'c')
+		count = ft_putchar_fd
 	else if (specifier == 's')
+		count = ft_putstr_fd
 	else if (specifier == 'd')
+		count = ft_putnbr_fd
 	else if (specifier == 'i')
+		count = ft_putnbr_fd
+	else if (specifier == 'u')
+		count = ft_putnbr_fd
 	else if (specifier == '%')
+		count = ft_putchar_fd
 	else if (specifier == 'x')
+		count = ft_puthex
 	else if (specifier == 'X')
+		count = ft_puthex_upper
 	else if (specifier == 'p')
+		count = ft_putchar_fd or putptr
 	// return (-1);
 }
 
