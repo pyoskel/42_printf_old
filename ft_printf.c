@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/23 18:56:25 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:32:54 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	replace_percent(char *format, va_list args)
 	format++;
 }
 
-static int	handle_specifier(char specifier, va_list args, int *count)
+int	handle_specifier(char specifier, va_list args, int *count)
 {
 	if (specifier == 'c')
 		count = ft_putchar_fd
