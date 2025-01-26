@@ -6,14 +6,14 @@
 #    By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 00:58:05 by pbartoch          #+#    #+#              #
-#    Updated: 2025/01/26 21:40:19 by pbartoch         ###   ########.fr        #
+#    Updated: 2025/01/26 22:46:33 by pbartoch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 HEADER = ft_printf.h
-CFLAGS = -Wall -Wextra -Werror
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCE =	ft_printf.c \
 			
