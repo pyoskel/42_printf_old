@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/24 20:32:54 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/26 20:15:01 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdarg.h> //for variadic functions
 #include <string.h> //for variadic functions
 #include <unistd.h> //for write function
-#include "../libft/libft.h"
+#include "libft/libft.h"
 
 // int	putnbr_base(int num, char *base)
 // {
@@ -42,27 +42,31 @@ void	replace_percent(char *format, va_list args)
 	format++;
 }
 
-int	handle_specifier(char specifier, va_list args, int *count)
+int	handle_specifier(char specifier, va_list args)
 {
+	int	count;
+
 	if (specifier == 'c')
-		count = ft_putchar_fd
-	else if (specifier == 's')
-		count = ft_putstr_fd
-	else if (specifier == 'd')
-		count = ft_putnbr_fd
-	else if (specifier == 'i')
-		count = ft_putnbr_fd
-	else if (specifier == 'u')
-		count = ft_putnbr_fd
-	else if (specifier == '%')
-		count = ft_putchar_fd
-	else if (specifier == 'x')
-		count = ft_puthex
-	else if (specifier == 'X')
-		count = ft_puthex_upper
-	else if (specifier == 'p')
-		count = ft_putchar_fd or putptr
-	// return (-1);
+		count = (1, va_arg(args, int));
+	// else if (specifier == 's')
+	// 	count = ft_putstr_fd
+	// else if (specifier == 'd')
+	// 	count = ft_putnbr_fd
+	// else if (specifier == 'i')
+	// 	count = ft_putnbr_fd
+	// else if (specifier == 'u')
+	// 	count = ft_putnbr_fd
+	// else if (specifier == '%')
+	// 	count = ft_putchar_fd
+	// else if (specifier == 'x')
+	// 	count = ft_puthex
+	// else if (specifier == 'X')
+	// 	count = ft_puthex_upper
+	// else if (specifier == 'p')
+	// 	count = ft_putchar_fd or putptr
+	else
+		return (-1);
+	return (count);
 }
 
 int	ft_printf(const char *format, ...)
