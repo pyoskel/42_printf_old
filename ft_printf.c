@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/26 20:15:01 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:51:54 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdarg.h> //for variadic functions
 #include <string.h> //for variadic functions
 #include <unistd.h> //for write function
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 // int	putnbr_base(int num, char *base)
 // {
@@ -26,28 +26,28 @@
 
 // }
 
-void	print_integer(int i)
-{
-	write(1, ft_itoa(i), ft_strlen(ft_itoa(i)));
-}
+// void	print_integer(int i)
+// {
+// 	write(1, ft_itoa(i), ft_strlen(ft_itoa(i)));
+// }
 
-void	replace_percent(char *format, va_list args)
-{
-	if (*format == '%')
-		write(1, "%", 1);
-	else if (*format == 'i')
-		print_integer(va_arg(args, int));
-	else
-		write(1, "something else", 15);
-	format++;
-}
+// void	replace_percent(char *format, va_list args)
+// {
+// 	if (*format == '%')
+// 		write(1, "%", 1);
+// 	else if (*format == 'i')
+// 		print_integer(va_arg(args, int));
+// 	else
+// 		write(1, "something else", 15);
+// 	format++;
+// }
 
 int	handle_specifier(char specifier, va_list args)
 {
 	int	count;
 
 	if (specifier == 'c')
-		count = (1, va_arg(args, int));
+		count = ft_putchar_fd(1, va_arg(args, int));
 	// else if (specifier == 's')
 	// 	count = ft_putstr_fd
 	// else if (specifier == 'd')
@@ -86,7 +86,7 @@ int	ft_printf(const char *format, ...)
 	}
 }
 
-int	main(void)
-{
-	ft_printf("Test %% int: %i\n", "12");
-}
+// int	main(void)
+// {
+// 	ft_printf("Test %% int: %i\n", "12");
+// }
