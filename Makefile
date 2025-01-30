@@ -6,7 +6,7 @@
 #    By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 00:58:05 by pbartoch          #+#    #+#              #
-#    Updated: 2025/01/26 22:46:33 by pbartoch         ###   ########.fr        #
+#    Updated: 2025/01/30 01:07:53 by pbartoch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCE =	ft_printf.c \
-			
+			ft_printf_add_on.c \
 
 OBJECTS = $(SOURCE:.c=.o)
 
