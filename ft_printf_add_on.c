@@ -6,41 +6,87 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:40:27 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/01/30 01:21:48 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:55:09 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int nbr, char c)
+int	ft_putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(char *str)
+{
+	int	i;
+	int	count;
+
+	i = -1;
+	count = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
+	while (str[++i] != '\0')
+		count += write(1, &str[i], 1);
+	return (count);
+}
+
+int	ft_putnbr_base(int nbr, char c, unsigned int base)
+{
+	int		count;
+	char	dec;
+
+	count = 0;
+	if (nbr == -2147483648)
+		count += write(1, "-2147483648", 11);
+	if (nbr < 0)
+	{
+		count += write(1, "-", 1);
+		nbr = -nbr;
+	}
+	if (nbr >= (int)base)
+		count += ft_putnbr_base(nbr / base, c, base);
+	dec = "0123456789"[nbr % base];
+	count += write(1, &dec, 1);
+	return (count);
+}
+
+int	ft_putnbr_u_base(unsigned int nbr, char c, unsigned int base)
 {
 	int		count;
 	char	hexadec;
 
 	count = 0;
-	if (nbr >= 16)
-		count += ft_puthex(nbr / 16, c);
+	if (nbr >= base)
+		count += ft_putnbr_u_base(nbr / base, c, base);
 	if (c == 'X')
-		hexadec = "0123456789ABCDEF"[nbr % 16];
+		hexadec = "0123456789ABCDEF"[nbr % base];
 	else
-		hexadec = "0123456789abcdef"[nbr % 16];
+		hexadec = "0123456789abcdef"[nbr % base];
 	count += write(1, &hexadec, 1);
 	return (count);
 }
 
+int	ft_putptr(void *ptr)
+{
+	unsigned long	address;
+	int				count;
+	char			hexadec;
 
-// int	ft_putchar(char c)
+	address = (unsigned long)ptr;
+	count = 0;
+	if (!ptr)
+		return (write(1, "(null)", 6));
+	count += write(1, "0x", 2);
+	if (address >= 16)
+		count += ft_putptr((void *)(address / 16));
+	hexadec = "0123456789abcdef"[address % 16];
+	count += write(1, &hexadec, 1);
+	return (count);
+}
+
+// int	main(void) //ft_putchar
 // {
-// 	int	count;
-
-// 	count = 0;
-// 	write(1, &c, 1);
-// 	count++;
-// 	return (count);
-// }
-
-// int	main(void)
-// {
-// 	ft_putchar(53);
+// 	ft_putchar('A');
 // 	return (0);
 // }
