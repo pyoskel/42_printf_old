@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/02/02 23:35:15 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:07:55 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ int	ft_printf(const char *format, ...)
 	return (va_end(args), count);
 }
 
+// int	main(void) // for ft_putnbr_base
+// {
+// 	int i = INT_MIN;
+
+// 	printf("%d\n", i);
+// 	ft_printf("%d\n", i);
+// 	return (0);
+// }
+
 // int	main(void) //ft_putstr testen
 // {
 // 	// char var1 = NULL;
@@ -67,8 +76,8 @@ int	ft_printf(const char *format, ...)
 
 // int	main(void) //ft_putchar testen
 // {
-// 	printf("hallo %c\n", -1);
-// 	ft_printf("hallo %c\n", -1);
+// 	printf("hallo %c\n", c);
+// 	ft_printf("hallo %c\n", c);
 // 	return (0);
 // }
 

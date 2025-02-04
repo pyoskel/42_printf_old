@@ -6,7 +6,7 @@
 /*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:40:27 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/02/02 23:55:09 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:09:07 by pbartoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ int	ft_putnbr_base(int nbr, char c, unsigned int base)
 	char	dec;
 
 	count = 0;
-	if (nbr == -2147483648)
+	if (nbr == INT_MIN)
+	{
 		count += write(1, "-2147483648", 11);
+		return (count);
+	}
 	if (nbr < 0)
 	{
 		count += write(1, "-", 1);
