@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: pabartoc <pabartoc@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/02/04 23:07:55 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/10/18 03:10:37 by pabartoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	handle_specifier(char specifier, va_list args)
 	else if (specifier == 'x' || specifier == 'X')
 		count = ft_putnbr_u_base(va_arg(args, unsigned int), specifier, 16);
 	else if (specifier == 'p')
-		count = ft_putptr(va_arg(args, void *));
+		count = ft_putptr(va_arg(args, void *), 0);
 	else
 		return (-1);
 	return (count);
@@ -92,7 +92,8 @@ int	ft_printf(const char *format, ...)
 // 	// hex = 12112;
 // 	// max_unsigned = 4294967294;
 // 	ptr_to_num = &num;
-// 	// ft_printf("decimal: %d, %i\nhexadecimal: %X\nunsigned_int: %u\npointer: \
+// 	// ft_printf("decimal: %d, %i\nhexadecimal:
+// 	// %X\nunsigned_int: %u\npointer:
 // 	// 	%p\n", num, num, hex, max_unsigned, ptr_to_num);
 // 	printf("Integer %d\nPointer %p\n", num, ptr_to_num);
 // 	ft_printf("Integer %d\nPointer %p\n", num, ptr_to_num);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_add_on.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pbartoch <pbartoch@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: pabartoc <pabartoc@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:40:27 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/02/04 23:09:07 by pbartoch         ###   ########.fr       */
+/*   Updated: 2025/10/18 03:15:37 by pabartoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_putnbr_u_base(unsigned int nbr, char c, unsigned int base)
 	return (count);
 }
 
-int	ft_putptr(void *ptr)
+int	ft_putptr(void *ptr, int flag)
 {
 	unsigned long	address;
 	int				count;
@@ -78,11 +78,14 @@ int	ft_putptr(void *ptr)
 
 	address = (unsigned long)ptr;
 	count = 0;
-	if (!ptr)
-		return (write(1, "(null)", 6));
-	count += write(1, "0x", 2);
+	if (flag == 0)
+	{
+		if (!ptr)
+			return (write(1, "(nil)", 5));
+		count += write(1, "0x", 2);
+	}
 	if (address >= 16)
-		count += ft_putptr((void *)(address / 16));
+		count += ft_putptr((void *)(address / 16), 1);
 	hexadec = "0123456789abcdef"[address % 16];
 	count += write(1, &hexadec, 1);
 	return (count);
@@ -93,3 +96,13 @@ int	ft_putptr(void *ptr)
 // 	ft_putchar('A');
 // 	return (0);
 // }
+
+int	main(void) //ft_putptr
+{
+	int	value = 2;
+
+	printf("%p\n", &value);
+	ft_putptr(&value, 0);
+	printf("\n");
+	return (0);
+}
