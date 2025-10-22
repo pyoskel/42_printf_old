@@ -6,7 +6,7 @@
 /*   By: pabartoc <pabartoc@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:40:27 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/10/18 03:15:37 by pabartoc         ###   ########.fr       */
+/*   Updated: 2025/10/23 00:21:37 by pabartoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,24 @@ int	ft_putptr(void *ptr, int flag)
 // 	return (0);
 // }
 
-int	main(void) //ft_putptr
-{
-	int	value = 2;
+// int	main(void) //ft_putptr_00
+// {
+// 	int	value = 2;
 
-	printf("%p\n", &value);
-	ft_putptr(&value, 0);
-	printf("\n");
-	return (0);
-}
+// 	printf("%p\n", &value);
+// 	ft_putptr(&value, 0);
+// 	printf("\n");
+// 	return (0);
+// }
+
+// int main(void) //ft_putptr_01
+// {
+//     int count;
+//     void *ptr = (void *)0xDEADBEEF; // Ein Beispiel-Pointer
+
+//     // Teste deinen %p-Formatter
+//     count = ft_printf("Test %p: %p\n", ptr, NULL);
+//     printf("Original: %p %p (count: %d)\n", ptr, NULL, count);
+
+//     return 0;
+// }
