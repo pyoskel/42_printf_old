@@ -6,17 +6,26 @@
 /*   By: pabartoc <pabartoc@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:40:27 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/10/23 00:21:37 by pabartoc         ###   ########.fr       */
+/*   Updated: 2025/10/23 02:35:26 by pabartoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/**
+ * ft_putchar - Writes a single character to the standard output.
+ * @param c The character to write.
+ * Return: The number of characters written (1).
+ */
 int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
+/**
+ * ft_putstr - Writes a string to the standard output.
+ * @param str The string to write.
+ * Return: The number of characters written.
+ */
 int	ft_putstr(char *str)
 {
 	int	i;
@@ -31,6 +40,13 @@ int	ft_putstr(char *str)
 	return (count);
 }
 
+/**
+ * ft_putnbr_base - Writes an integer in a specified base to the standard output.
+ * @param nbr The integer to write.
+ * @param c The format specifier ('d', 'i', etc.).
+ * @param base The base for conversion (e.g., 10 for decimal).
+ * Return: The number of characters written.
+ */
 int	ft_putnbr_base(int nbr, char c, unsigned int base)
 {
 	int		count;
@@ -54,6 +70,13 @@ int	ft_putnbr_base(int nbr, char c, unsigned int base)
 	return (count);
 }
 
+/**
+ * - Writes an unsigned integer in a specified base to the standard output.
+ * @param nbr The unsigned integer to write.
+ * @param c The format specifier ('x', 'X', etc.).
+ * @param base for conversion (10 for decimal, 16 for hexadecimal).
+ * Return: The number of characters written.
+ */
 int	ft_putnbr_u_base(unsigned int nbr, char c, unsigned int base)
 {
 	int		count;
@@ -70,6 +93,13 @@ int	ft_putnbr_u_base(unsigned int nbr, char c, unsigned int base)
 	return (count);
 }
 
+/**
+ * - Writes a pointer address in hexadecimal format to the standard output.
+ * @param ptr The pointer to write.
+ * @param flag A flag to indicate if the "0x" prefix should be printed 
+ * 				(0 for no, 1 for yes).
+ * Return: The number of characters written.
+ */
 int	ft_putptr(void *ptr, int flag)
 {
 	unsigned long	address;

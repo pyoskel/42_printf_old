@@ -6,12 +6,19 @@
 /*   By: pabartoc <pabartoc@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 01:24:28 by pbartoch          #+#    #+#             */
-/*   Updated: 2025/10/18 03:10:37 by pabartoc         ###   ########.fr       */
+/*   Updated: 2025/10/23 04:57:51 by pabartoc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * handle_specifier - Handles a single format specifier and writes the
+ * corresponding argument to the standard output.
+ * @param specifier The format specifier character.
+ * @param args The variadic arguments list.
+ * Return: The number of characters written for the specifier.
+ */
 int	handle_specifier(char specifier, va_list args)
 {
 	int	count;
@@ -35,6 +42,12 @@ int	handle_specifier(char specifier, va_list args)
 	return (count);
 }
 
+/**
+ * ft_printf - A simplified version of the printf function.
+ * @param format The format string containing text and format specifiers.
+ * Variadic arguments corresponding to the format specifiers.
+ * Return: The total number of characters printed.
+ */
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -56,6 +69,20 @@ int	ft_printf(const char *format, ...)
 	}
 	return (va_end(args), count);
 }
+
+// int	main(void) // ft_printf testen
+// {
+// 	int	printed;
+
+// 	// String-Literale werden automatisch zusammengefügt
+//  	printed	= ft_printf("Character: %c\nString: %s\nDecimal: %d\n"
+//         "Unsigned: %u\nHex (lowercase): %x\nHex (uppercase): %X\n"
+//         "Pointer: %p\nPercent sign: %%\n",
+//         'A', "Hello, World!", -42, 42, 255, 255, &printed);
+
+// 	ft_printf("Total characters printed: %d\n", printed);
+// 	return (0);
+// }
 
 // int	main(void) // for ft_putnbr_base
 // {
@@ -106,7 +133,7 @@ int	ft_printf(const char *format, ...)
 // 	int				number2 = 0;
 // 	unsigned int	number3 = 4294967295;
 // 	int				count = ft_printf("%x", number1);
-// return Wert von printf wird an count uebergeben
+// // return Wert von printf wird an count uebergeben
 
 // 	printf("Lowercase hex (x): %x\n", number1);
 // 	ft_printf("Lowercase hex (x): %x\n\n", number1); // Erwartet: "ff"
@@ -119,7 +146,7 @@ int	ft_printf(const char *format, ...)
 
 // 	printf("Hex von 4294967295 (UINT_MAX): %x\n", number3);
 // 	ft_printf("Hex von 4294967295 (UINT_MAX): %x\n", number3);
-// Erwartet: "ffffffff"
+// // Erwartet: "ffffffff"
 
 // 	printf("%d\n", count); //length for Lowercase hex (number1)
 // 	return (0);
